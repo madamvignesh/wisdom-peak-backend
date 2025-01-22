@@ -1,0 +1,52 @@
+### Login to get JWT token
+POST http://localhost:8081/login
+Content-Type: application/json
+
+{
+  "name": "Vignesh",
+  "password": "vignesh123"
+}
+
+### Get Data from db
+GET http://localhost:8081/46f5b866-bbcd-4b57-b82e-f27c54dc0feb
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
+
+### GET ALL USERS DATA
+GET http://localhost:8081/
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
+
+### ADD USER IN DATABASES
+POST http://localhost:8081/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
+
+{
+  "name": "Archana",
+  "password": "archana123"
+}
+
+
+### ADD USER DETAILS
+POST http://localhost:8081/add/details
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
+
+{
+  "email": "archana@gmail.com",
+  "phone": "8885744410",
+  "company": "spaceX"
+}
+
+
+### Update the User
+POST http://localhost:8081/update/223988f1-8852-44a2-b37e-f0b750963c28
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
+
+
+### Delete user data 
+DELETE http://localhost:8081/delete/9ac2018e-756c-40d6-819f-6afcc23ac47c
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
