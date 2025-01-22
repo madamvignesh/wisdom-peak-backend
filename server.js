@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 const dbPath = path.join(__dirname, 'wisdompeakusersdata.db');
-let db = null, current_id = null, current_name = null;
+let db = null, current_id = null, current_username = null;
 
 const initializeDbAndServer = async () => {
   try {
@@ -53,9 +53,9 @@ const authenticateToken = (request, response, next) => {
 };
 
 app.post('/login/', async (request, response) => {
-  const { name, password } = request.body;
+  const { username, password } = request.body;
   const getuserDetails = `
-    SELECT * FROM users WHERE name = '${name}'`;
+    SELECT * FROM users WHERE username = '${username}'`;
   const user = await db.get(getuserDetails);
 
   if (user === undefined) {
@@ -65,7 +65,7 @@ app.post('/login/', async (request, response) => {
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (isPasswordValid === true) {
       const payload = {
-        name: name,
+        username: username,
       };
       const jwtToken = jwt.sign(payload, 'MY_SECRET_TOKEN');
       response.send({ jwtToken });
@@ -102,37 +102,62 @@ app.get('/', authenticateToken, async (request, response) => {
 });
 
 app.post('/add', async (request, response) => {
-  const { name, password } = request.body;
-  const id = uuidv4();
+  const { username, password } = request.body;
+  
   try {
+    // Using parameterized query to prevent SQL injection
+    const query = `
+      SELECT * FROM users WHERE username = ?;
+    `;
+    const user = await db.get(query, [username]);
+    
+    if (user) {
+      return response.json({ message: "Username already exists" });
+    }
+    
+    const id = uuidv4();
     const password_hash = await bcrypt.hash(password, 12);
     const usersQuery = `
-      INSERT INTO users (id, name, password)
-      VALUES (?, ?, ?)
+      INSERT INTO users (id, username, password)
+      VALUES (?, ?, ?);
     `;
-    await db.run(usersQuery, [id, name, password_hash]);
+    await db.run(usersQuery, [id, username, password_hash]);
+    
+    // Save current user data for the next step
     current_id = id;
-    current_name = name;
-    response.json({ message: "Move /add/details step" });
+    current_username = username;
+    
+    response.json({ message: "Move to /add/details step" });
   } catch (error) {
     console.error("Error adding user:", error);
-    response.status(500).json(error);
+    response.status(500).json({ error: "Internal server error" });
   }
 });
 
+
 app.post('/add/details', async (request, response) => {
-  const { email, phone, company } = request.body;
+  const { email, phone, company, name } = request.body;
+  const created_at= new Date().toISOString();
+  const updated_at = created_at;
   try {
-    if (!current_id || !current_name) {
+    const query = `
+      SELECT * FROM usersdetails WHERE username = ?;
+    `;
+    const user = await db.get(query, [current_username]);
+    
+    if (user) {
+      return response.json({ message: "Username already exists" });
+    }
+    if (!current_id || !current_username) {
       return response.status(400).json({ error: "User ID or name not found. Complete the '/add' step first." });
     }
     const userDetailsQuery = `
-      INSERT INTO usersdetails (id, name, email, phone, company)
-      VALUES (?, ?, ?, ?, ?)
+      INSERT INTO usersdetails (id, username, email, phone, company, name, created_at, update_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `;
-    await db.run(userDetailsQuery, [current_id, current_name, email, phone, company]);
+    await db.run(userDetailsQuery, [current_id, current_username, email, phone, company, name, created_at, updated_at]);
     current_id = null;
-    current_name = null;
+    current_username = null;
     response.json({ message: "User details added successfully to 'usersdetails' table!" });
   } catch (err) {
     console.error("Error adding user details:", err);

@@ -3,7 +3,7 @@ POST http://localhost:8081/login
 Content-Type: application/json
 
 {
-  "name": "Vignesh",
+  "username": "Vignesh",
   "password": "vignesh123"
 }
 
@@ -23,8 +23,8 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
 
 {
-  "name": "Archana",
-  "password": "archana123"
+  "username": "AchammagariPoojitha",
+  "password": "poojitha123"
 }
 
 
@@ -34,19 +34,20 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
 
 {
-  "email": "archana@gmail.com",
-  "phone": "8885744410",
-  "company": "spaceX"
+  "email": "poojitha@gmail.com",
+  "phone": "857496852",
+  "company": "Amozan",
+  "name": "Poojitha"
 }
 
 
 ### Update the User
-POST http://localhost:8081/update/223988f1-8852-44a2-b37e-f0b750963c28
+POST http://localhost:8081/update/4347887b-5764-4ea8-9451-d5304760dbd9
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
 
 
 ### Delete user data 
-DELETE http://localhost:8081/delete/9ac2018e-756c-40d6-819f-6afcc23ac47c
+DELETE http://localhost:8081/delete/092008d4-78a9-414e-b1d4-9335b33d79d9
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
