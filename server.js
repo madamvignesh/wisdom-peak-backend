@@ -1,12 +1,12 @@
 const express = require('express');
 const cors = require('cors');
-const {getUserDetails, getAllUsers } = require('./controllers/userDetailsController');
+const {getUserDetails, getAllUsers, getAllUserData } = require('./controllers/userDetailsController');
 const { loginUser } = require('./controllers/authController');
 const { addUser, updateUser, deleteUser, addUserDetails } = require('./controllers/userController');
 const authenticateToken = require('./middlewares/authenticateToken');
 
 
-const userRoutes = require('./routes/userRoutes');
+// const userRoutes = require('./routes/userRoutes');
 // const authRoutes = require('./routes/authRoutes');
 // const userDetailsRoutes = require('./routes/userDetailsRoutes');
 const initializeDb = require('./config/db');
@@ -21,12 +21,14 @@ const startServer = async () => {
     console.log('Connected to Database');
 
     app.post('/login', loginUser);
-    app.get('/', authenticateToken, getAllUsers);
-    app.get('/:id', authenticateToken, getUserDetails);
     app.post('/add', addUser);
-    app.post('/add/details', addUserDetails);  
+    app.get('/', authenticateToken, getAllUsers);
+    app.get('/:user_id/userdata', authenticateToken, getAllUserData);
+    app.get('/:user_id', authenticateToken, getUserDetails);
+
+    app.post('/:user_id/add',authenticateToken, addUserDetails);  
     app.post('/update/:id', authenticateToken, updateUser);
-    app.delete('/delete/:id', authenticateToken, deleteUser);
+    app.delete('/delete/:user_id', authenticateToken, deleteUser);
 
     app.listen(8081, async () => {
       const query = `

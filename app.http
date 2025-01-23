@@ -3,51 +3,69 @@ POST http://localhost:8081/login
 Content-Type: application/json
 
 {
-  "username": "VigneshMadam",
-  "password": "vignesh123"
-}
-
-### Get Data from db
-GET http://localhost:8081/0b0af9ae-a47a-42b2-9a76-42c37a28fcc1
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
-
-### GET ALL USERS DATA
-GET http://localhost:8081/
-Content-Type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
-
-### ADD USER IN DATABASES
-POST http://localhost:8081/add
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
-
-{
   "username": "AchammagariPoojitha",
   "password": "poojitha123"
 }
 
-
-### ADD USER DETAILS
-POST http://localhost:8081/add/details
+### Get single user Data from db
+GET http://localhost:8081/6
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
+
+
+### GET ALL USER DATA
+GET http://localhost:8081/7/userdata
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
+
+
+### Get Data from db
+GET http://localhost:8081/
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
 
 {
-  "email": "poojitha@gmail.com",
-  "phone": "857496852",
-  "company": "Amozan",
-  "name": "Poojitha"
+  "search": "poo",
+  "company": ""
+}
+
+### GET ALL USERS DATA
+GET http://localhost:8081/
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
+
+### ADD USER IN DATABASES
+POST http://localhost:8081/add
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
+
+{
+  "username": "NickRoa",
+  "password": "nickroa123",
+  "premium": false
+}
+
+
+### ADD USER DETAILS
+POST http://localhost:8081/8/add
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
+
+{
+  "email": "nickroa@gmail.com",
+  "phone": "8524679135",
+  "company": "SpaceX",
+  "name": "nick"
 }
 
 
 ### Update the User
-POST http://localhost:8081/update/4347887b-5764-4ea8-9451-d5304760dbd9
+POST http://localhost:8081/update/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
 
 
 ### Delete user data 
-DELETE http://localhost:8081/delete/4347887b-5764-4ea8-9451-d5304760dbd9
+DELETE http://localhost:8081/delete/8
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzM3NTU3Nzg0fQ.eMjrIoLwWWx6GqP5RFDcW_H25nNr2mZ2vf4ddRGGsGo
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
