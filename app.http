@@ -60,12 +60,18 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFja
 
 
 ### Update the User
-POST http://localhost:8081/update/1
+POST http://localhost:8081/update/22
 Content-Type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
 
 
-### Delete user data 
-DELETE http://localhost:8081/deletecustomer/9/27
+### Delete customer data 
+DELETE http://localhost:8081/deletecustomer/7/27
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
+
+
+### Delete user data
+DELETE http://localhost:8081/deleteuser/7/9
 Content-Type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ

@@ -60,11 +60,16 @@ const updateUser = async (req, res) => {
     const db = await initializeDb();
   
     try {
-        const updateQuery = `
-        UPDATE customers
-        SET updated_at = ?
-        WHERE id = ?;
-      `;
+      const userQuery = `SELECT * FROM customers WHERE id = ?`;
+      const user = await db.get(userQuery, [id]);
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+      const updateQuery = `
+      UPDATE customers
+      SET updated_at = ?
+      WHERE id = ?;
+    `;
   
       await db.run(updateQuery, [updated_at, id]);
       return res.json({ message: 'User Status Updated successfully' });
