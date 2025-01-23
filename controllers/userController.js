@@ -75,32 +75,59 @@ const updateUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
-    const { user_id } = req.params;
-    const db = await initializeDb();
-  
-    try {
-      const userQuery = `SELECT * FROM users WHERE user_id = ?`;
-      const user = await db.get(userQuery, [user_id]);
-  
-      if (!user) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-  
-      let deleteQuery = `DELETE FROM users WHERE user_id = ?`;
-      await db.run(deleteQuery, [user_id]);
-      deleteQuery = `DELETE FROM customers WHERE user_id = ?`;
-      await db.run(deleteQuery, [user_id]);
-      return res.json({ message: 'User deleted successfully' });
-    } catch (err) {
-      console.error('Error deleting user:', err);
-      return res.status(500).json({ error: 'Internal server error' });
+  const db = await initializeDb();
+  const {user_id,del_user_id} = req.params;
+  try {
+    let query =`SELECT * FROM users WHERE user_id = ?`;
+    const request = await db.get(query, [user_id]);
+    if(request.premium === 0){
+      return res.status(401).json({error: 'Unauthorized access'});
     }
+
+
+    const userQuery = `SELECT * FROM users WHERE user_id = ?`;
+    const user = await db.get(userQuery, [del_user_id]);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    let deleteQuery = `DELETE FROM users WHERE user_id = ?`;
+    await db.run(deleteQuery, [del_user_id]);
+
+    return res.json({ message: 'User deleted successfully' });
+
+  } catch (err) {
+    console.error('Error deleting user:', err);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
 };
-  
+
+const deleteCustomer = async (req, res) => {
+  const db = await initializeDb();
+  const { user_id, id } = req.params;
+  let query =`SELECT * FROM users WHERE user_id = ?`;
+  const request = await db.get(query, [user_id]);
+  if(request.premium === 0){
+    return res.status(401).json({error: 'Unauthorized access'});
+  }
+  const deleteQuery = `
+    DELETE FROM customers
+    WHERE id = ?;
+  `;
+
+  const result = await db.run(deleteQuery, [id]);
+  if (result.changes > 0) {
+    return res.json({ message: 'Customer deleted successfully' });
+  } else {
+    return res.status(404).json({ error: 'No matching customer found or user is not premium' });
+  }
+}
 
 module.exports = {
   addUser,
   addUserDetails,
   updateUser,
   deleteUser,
+  deleteCustomer,
 };

@@ -14,7 +14,7 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFja
 
 
 ### GET ALL USER DATA
-GET http://localhost:8081/7/userdata
+GET http://localhost:8081/9/userdata
 Content-Type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
 
@@ -47,7 +47,7 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFja
 
 
 ### ADD USER DETAILS
-POST http://localhost:8081/8/add
+POST http://localhost:8081/9/add
 Content-Type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
 
@@ -66,6 +66,6 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFja
 
 
 ### Delete user data 
-DELETE http://localhost:8081/delete/8
+DELETE http://localhost:8081/deletecustomer/9/27
 Content-Type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ

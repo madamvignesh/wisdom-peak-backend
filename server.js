@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const {getUserDetails, getAllUsers, getAllUserData } = require('./controllers/userDetailsController');
 const { loginUser } = require('./controllers/authController');
-const { addUser, updateUser, deleteUser, addUserDetails } = require('./controllers/userController');
+const { addUser, updateUser, deleteUser, addUserDetails, deleteCustomer } = require('./controllers/userController');
 const authenticateToken = require('./middlewares/authenticateToken');
 
 
@@ -28,7 +28,8 @@ const startServer = async () => {
 
     app.post('/:user_id/add',authenticateToken, addUserDetails);  
     app.post('/update/:id', authenticateToken, updateUser);
-    app.delete('/delete/:user_id', authenticateToken, deleteUser);
+    app.delete('/deletecustomer/:user_id/:id', authenticateToken, deleteCustomer);
+    app.delete('/deleteuser/:user_id/:del_user_id', authenticateToken, deleteUser)
 
     app.listen(8081, async () => {
       const query = `
