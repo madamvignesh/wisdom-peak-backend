@@ -29,7 +29,8 @@ const addUser = async (req, res) => {
 };
 
 const addUserDetails = async (req, res) => {
-  const { user_id } = req.params;
+  const {current_id}= req.auth;
+  console.log(current_id);
 
   const { email, phone, company, name } = req.body;
   const created_at = new Date().toISOString();
@@ -44,7 +45,7 @@ const addUserDetails = async (req, res) => {
       VALUES (?, ?, ?, ?, ?, ?, ?)
     `;
     await db.run(userDetailsQuery, [
-      user_id, email, phone, company, name, created_at, updated_at,
+      current_id, email, phone, company, name, created_at, updated_at,
     ]);
 
     return res.json({ message: 'User details added successfully' });
@@ -55,51 +56,52 @@ const addUserDetails = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-    const { id } = req.params;
-    const updated_at = new Date().toISOString();
-    const db = await initializeDb();
-  
-    try {
-      const userQuery = `SELECT * FROM customers WHERE id = ?`;
-      const user = await db.get(userQuery, [id]);
-      if (!user) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-      const updateQuery = `
-      UPDATE customers
-      SET updated_at = ?
-      WHERE id = ?;
-    `;
-  
-      await db.run(updateQuery, [updated_at, id]);
-      return res.json({ message: 'User Status Updated successfully' });
-    } catch (err) {
-      console.error('Error updating user:', err);
-      return res.status(500).json({ error: 'Internal server error' });
+  const { id } = req.params;
+  const updated_at = new Date().toISOString();
+  const db = await initializeDb();
+
+  try {
+    const userQuery = `SELECT * FROM customers WHERE id = ?`;
+    const user = await db.get(userQuery, [id]);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
     }
+    const updateQuery = `
+    UPDATE customers
+    SET updated_at = ?
+    WHERE id = ?;
+  `;
+
+    await db.run(updateQuery, [updated_at, id]);
+    return res.json({ message: 'User Status Updated successfully' });
+  } catch (err) {
+    console.error('Error updating user:', err);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
 };
 
 const deleteUser = async (req, res) => {
   const db = await initializeDb();
-  const {user_id,del_user_id} = req.params;
+  const {current_id}= req.auth;
+  const {user_id} = req.params;
   try {
     let query =`SELECT * FROM users WHERE user_id = ?`;
-    const request = await db.get(query, [user_id]);
+    const request = await db.get(query, [current_id]);
     if(request.premium === 0){
       return res.status(401).json({error: 'Unauthorized access'});
     }
 
-
     const userQuery = `SELECT * FROM users WHERE user_id = ?`;
-    const user = await db.get(userQuery, [del_user_id]);
+    const user = await db.get(userQuery, [user_id]);
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
 
     let deleteQuery = `DELETE FROM users WHERE user_id = ?`;
-    await db.run(deleteQuery, [del_user_id]);
-
+    await db.run(deleteQuery, [user_id]);
+    deleteQuery = `DELETE FROM customers WHERE user_id = ?`;
+    await db.run(deleteQuery, [user_id]);
     return res.json({ message: 'User deleted successfully' });
 
   } catch (err) {
@@ -110,9 +112,10 @@ const deleteUser = async (req, res) => {
 
 const deleteCustomer = async (req, res) => {
   const db = await initializeDb();
-  const { user_id, id } = req.params;
+  const {current_id}= req.auth;
+  const { id } = req.params;
   let query =`SELECT * FROM users WHERE user_id = ?`;
-  const request = await db.get(query, [user_id]);
+  const request = await db.get(query, [current_id]);
   if(request.premium === 0){
     return res.status(401).json({error: 'Unauthorized access'});
   }

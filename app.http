@@ -3,26 +3,25 @@ POST http://localhost:8081/login
 Content-Type: application/json
 
 {
-  "username": "AchammagariPoojitha",
-  "password": "poojitha123"
+  "username": "VigneshMadam",
+  "password": "vignesh123"
 }
 
 ### Get single user Data from db
-GET http://localhost:8081/6
+GET http://localhost:8081/user
 Content-Type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
-
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
 
 ### GET ALL USER DATA
-GET http://localhost:8081/9/userdata
+GET http://localhost:8081/alldata
 Content-Type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
 
 
 ### Get Data from db
 GET http://localhost:8081/
 Content-Type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
 
 {
   "search": "poo",
@@ -32,12 +31,12 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFja
 ### GET ALL USERS DATA
 GET http://localhost:8081/
 Content-Type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
 
 ### ADD USER IN DATABASES
 POST http://localhost:8081/add
 Content-Type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
 
 {
   "username": "NickRoa",
@@ -47,31 +46,31 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFja
 
 
 ### ADD USER DETAILS
-POST http://localhost:8081/9/add
+POST http://localhost:8081/addcustomer
 Content-Type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
 
 {
-  "email": "nickroa@gmail.com",
-  "phone": "8524679135",
-  "company": "SpaceX",
-  "name": "nick"
+  "email": "ravikumar@gmail.com",
+  "phone": "8235679135",
+  "company": "Google",
+  "name": "ravi"
 }
 
 
 ### Update the User
-POST http://localhost:8081/update/22
+POST http://localhost:8081/update/24
 Content-Type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
 
 
 ### Delete customer data 
-DELETE http://localhost:8081/deletecustomer/7/27
+DELETE http://localhost:8081/deletecustomer/
 Content-Type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
 
 
 ### Delete user data
-DELETE http://localhost:8081/deleteuser/7/9
+DELETE http://localhost:8081/deleteuser/10
 Content-Type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFjaGFtbWFnYXJpUG9vaml0aGEiLCJpYXQiOjE3Mzc2MjIzOTR9.8DoBWMmZLMTnbAMMaY1vHnv_43g3Q83yRBi1N0lUlpQ
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw

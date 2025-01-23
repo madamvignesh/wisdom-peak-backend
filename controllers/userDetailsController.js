@@ -38,30 +38,30 @@ const getAllUsers = async (req, res) => {
 
 
 const getUserDetails = async (req, res) => {
-    const { user_id } = req.params;
-    const db = await initializeDb();    
-    try {
-      const query = `SELECT * FROM customers WHERE user_id = ?`;
-      const userDetails = await db.all(query, [user_id]);
-  
-      if (!userDetails) {
-        return res.status(404).json({ message: 'User details not found' });
-      }
-  
-      return res.json(userDetails);
-    } catch (err) {
-      console.error('Error fetching user details:', err);
-      return res.status(500).json({ error: 'Internal server error' });
+  const {current_id}= req.auth;
+  const db = await initializeDb();    
+  try {
+    const query = `SELECT * FROM customers WHERE user_id = ?`;
+    const userDetails = await db.all(query, [current_id]);
+
+    if (!userDetails) {
+      return res.status(404).json({ message: 'User details not found' });
     }
+
+    return res.json(userDetails);
+  } catch (err) {
+    console.error('Error fetching user details:', err);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
 };
 
 const getAllUserData = async (req, res) => {
-  const { user_id } = req.params;
+  const {current_id}= req.auth;
   const db = await initializeDb();
 
   try {
     const query = `SELECT * FROM customers INNER JOIN users ON customers.user_id = users.user_id WHERE customers.user_id = ?`;
-    const userDetails = await db.all(query, [user_id]);
+    const userDetails = await db.all(query, [current_id]);
 
     if(!userDetails) {
       return res.status(404).json({ message: 'User details not found' });

@@ -23,13 +23,13 @@ const startServer = async () => {
     app.post('/login', loginUser);
     app.post('/add', addUser);
     app.get('/', authenticateToken, getAllUsers);
-    app.get('/:user_id/userdata', authenticateToken, getAllUserData);
-    app.get('/:user_id', authenticateToken, getUserDetails);
+    app.get('/alldata', authenticateToken, getAllUserData);
+    app.get('/user', authenticateToken, getUserDetails);
 
-    app.post('/:user_id/add',authenticateToken, addUserDetails);  
+    app.post('/addcustomer',authenticateToken, addUserDetails);  
     app.post('/update/:id', authenticateToken, updateUser);
-    app.delete('/deletecustomer/:user_id/:id', authenticateToken, deleteCustomer);
-    app.delete('/deleteuser/:user_id/:del_user_id', authenticateToken, deleteUser)
+    app.delete('/deletecustomer/:id', authenticateToken, deleteCustomer);
+    app.delete('/deleteuser/:user_id', authenticateToken, deleteUser)
 
     app.listen(8081, async () => {
       const query = `

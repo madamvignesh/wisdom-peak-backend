@@ -18,7 +18,7 @@ const loginUser = async (req, res) => {
     return res.status(400).json({ error: 'Invalid password' });
   }
 
-  const token = jwt.sign({username: username }, 'MY_SECRET_TOKEN');
+  const token = jwt.sign({user_id: user.user_id, username: username }, 'MY_SECRET_TOKEN');
   res.json({ jwtToken: token,user_id: user.user_id,});
 };
 

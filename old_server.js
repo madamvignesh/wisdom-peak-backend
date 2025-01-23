@@ -10,7 +10,7 @@ const bcrypt = require('bcrypt');
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+payload
 const dbPath = path.join(__dirname, 'wisdompeakusersdata.db');
 let db = null, current_id = null, current_username = null;
 
