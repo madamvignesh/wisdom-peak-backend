@@ -24,12 +24,17 @@ Content-Type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
 
 {
-  "search": "poo",
+  "search": "nick",
   "company": ""
 }
 
-### GET ALL USERS DATA
+### GET ALL CUSTOMERS DATA
 GET http://localhost:8081/
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
+
+### GET ALL USERS DATA
+GET http://localhost:8081/users
 Content-Type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
 
@@ -59,18 +64,18 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c
 
 
 ### Update the User
-POST http://localhost:8081/update/24
+POST http://localhost:8081/update/28
 Content-Type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
 
 
 ### Delete customer data 
-DELETE http://localhost:8081/deletecustomer/
+DELETE http://localhost:8081/deletecustomer/32
 Content-Type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
 
 
 ### Delete user data
-DELETE http://localhost:8081/deleteuser/10
+DELETE http://localhost:8081/deleteuser/12
 Content-Type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
