@@ -86,13 +86,13 @@ Follow these steps to set up the project locally:
 ```
 wisdom-peak-backend/
 
-│── controllers/  # Request handlers
+├── controllers/  # Request handlers
 ├── config/        # Assist to the Database
-│── models/       # Database models
-│── routes/       # API routes
-│── middlewares/  # Custom middleware functions
-│── utils/        # Utility functions
-│── app.http       # Request Send Here
+├── models/       # Database models
+├── routes/       # API routes
+├── middlewares/  # Custom middleware functions
+├── utils/        # Utility functions
+├── app.http       # Request Send Here
 ├── server.js         # Node js Code
 ├── wisdompeakusersdata.db         # Database
 ├── package.json      # Project configuration
