@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const {getUserDetails, getAllUsers, getAllUserData } = require('./controllers/userDetailsController');
+const {getUserDetails, getAllUsers, getAllUserData, getUsersData } = require('./controllers/userDetailsController');
 const { loginUser } = require('./controllers/authController');
 const { addUser, updateUser, deleteUser, addUserDetails, deleteCustomer } = require('./controllers/userController');
 const authenticateToken = require('./middlewares/authenticateToken');
@@ -25,6 +25,7 @@ const startServer = async () => {
     app.get('/', authenticateToken, getAllUsers);
     app.get('/alldata', authenticateToken, getAllUserData);
     app.get('/user', authenticateToken, getUserDetails);
+    app.get('/users',authenticateToken, getUsersData)
 
     app.post('/addcustomer',authenticateToken, addUserDetails);  
     app.post('/update/:id', authenticateToken, updateUser);
