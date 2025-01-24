@@ -7,6 +7,11 @@ Content-Type: application/json
   "password": "vignesh123"
 }
 
+### GET ALL CUSTOMERS DATA
+GET http://localhost:8081/
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
+
 ### Get single user Data from db
 GET http://localhost:8081/user
 Content-Type: application/json
@@ -17,7 +22,6 @@ GET http://localhost:8081/alldata
 Content-Type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
 
-
 ### Get Data from db
 GET http://localhost:8081/
 Content-Type: application/json
@@ -27,11 +31,6 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c
   "search": "nick",
   "company": ""
 }
-
-### GET ALL CUSTOMERS DATA
-GET http://localhost:8081/
-Content-Type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6IlZpZ25lc2hNYWRhbSIsImlhdCI6MTczNzY0MjEwNn0.BGt05w5UTBS5JLRGAOJGnmfe1xwtmNvEi5RSDhiFGxw
 
 ### GET ALL USERS DATA
 GET http://localhost:8081/users
