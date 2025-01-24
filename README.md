@@ -41,21 +41,12 @@ Follow these steps to set up the project locally:
    npm install
    ```
 
-4. Set up the environment variables:
-   - Create a `.env` file in the root directory.
-   - Add the following variables:
-     ```env
-     PORT=3000
-     DB_URI=<your-database-uri>
-     JWT_SECRET=<your-jwt-secret>
-     ```
-
-5. Start the development server:
+4. Start the development server:
    ```bash
-   npm start
+   node server.js
    ```
 
-6. Access the server at `http://localhost:3000`.
+5. Access the server at `http://localhost:8080`.
 
 ---
 
@@ -85,20 +76,18 @@ Follow these steps to set up the project locally:
 
 ```
 wisdom-peak-backend/
-
 ├── controllers/  # Request handlers
-├── config/        # Assist to the Database
+├── config/       # Database configuration
 ├── models/       # Database models
 ├── routes/       # API routes
 ├── middlewares/  # Custom middleware functions
 ├── utils/        # Utility functions
-├── app.http       # Request Send Here
-├── server.js         # Node js Code
-├── wisdompeakusersdata.db         # Database
-├── package.json      # Project configuration
-└── README.md         # Project documentation
+├── app.http      # HTTP request examples
+├── server.js     # Main server file
+├── wisdompeakusersdata.db  # SQLite database
+├── package.json  # Project configuration
+└── README.md     # Project documentation
 ```
-
 ---
 
 ## Methods Overview
