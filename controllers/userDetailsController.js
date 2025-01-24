@@ -61,8 +61,8 @@ const getUsersData = async (req, res) => {
   
   try {
     let getquery = `SELECT * FROM users WHERE user_id = ?`;
-    const res = await db.get(getquery, [current_id]);
-    if(res.premium === 0) {
+    const result = await db.get(getquery, [current_id]);
+    if(result.premium === 0) {
       return res.status(404).json({message: 'Authority is required to access this data'})
     }
     const query = `SELECT * FROM users`;
